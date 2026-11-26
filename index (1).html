@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEMNASTI 2026 – Seminar Nasional Teknologi Informasi</title>
+  <meta name="description" content="Daftar SEMNASTI 2026 tanpa akun. Presensi QR dan e-sertifikat untuk peserta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar no-print">
+    <a class="brand" href="#top">SEMNASTI 2026</a>
+    <nav>
+      <a href="#tentang">Tentang</a>
+      <a href="#paket">Paket</a>
+      <a href="#daftar">Daftar</a>
+      <a href="#cek">Cek tiket</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero no-print">
+      <div class="hero-text">
+        <p id="statusBadge" class="badge" role="status">Memeriksa status…</p>
+        <h1>Seminar Nasional Teknologi Informasi</h1>
+        <p class="lead">Diselenggarakan HMTI UDINUS. Daftar tanpa membuat akun, tunjukkan tiket QR saat hadir, dan terima e-sertifikat.</p>
+
+        <dl class="facts">
+          <div><dt>Hari acara</dt><dd>Senin, 30 November 2026, pukul 08.00 WIB</dd></div>
+          <div><dt>Registrasi terakhir</dt><dd>Sabtu, 28 November 2026</dd></div>
+          <div><dt>Lokasi</dt><dd id="venueText">Universitas Dian Nuswantoro, Semarang</dd></div>
+        </dl>
+
+        <a id="heroCta" class="btn" href="#daftar">Daftar sekarang</a>
+      </div>
+
+      <aside class="stub" aria-label="Hitung mundur registrasi">
+        <div class="stub-top">
+          <p id="countLabel" class="stub-label">Registrasi ditutup dalam</p>
+          <div id="countdown" class="count">
+            <div><b id="cd">0</b><span>hari</span></div>
+            <div><b id="ch">0</b><span>jam</span></div>
+            <div><b id="cm">0</b><span>menit</span></div>
+          </div>
+        </div>
+        <div class="stub-bottom">
+          <p class="stub-label">Hari acara</p>
+          <p class="stub-date">30 Nov 2026</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- TENTANG -->
+    <section id="tentang" class="section no-print">
+      <h2>Tentang acara</h2>
+      <p class="intro">SEMNASTI 2026 mempertemukan mahasiswa, dosen, dan praktisi untuk membahas perkembangan teknologi informasi terkini.</p>
+      <div class="features">
+        <article>
+          <h3>Daftar tanpa akun</h3>
+          <p>Isi nama, email, dan nomor WhatsApp. Kode registrasi langsung muncul.</p>
+        </article>
+        <article>
+          <h3>Presensi dengan QR</h3>
+          <p>Tunjukkan QR pada tiket Anda saat tiba di lokasi.</p>
+        </article>
+        <article>
+          <h3>E-sertifikat</h3>
+          <p>Peserta yang hadir dan tercatat presensinya mendapat e-sertifikat.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PAKET -->
+    <section id="paket" class="section no-print">
+      <h2>Paket tiket</h2>
+      <div class="packages">
+        <article class="pkg">
+          <h3>Single</h3>
+          <p class="price">Rp125.000</p>
+          <ul>
+            <li>1 tiket peserta</li>
+            <li>Presensi QR</li>
+            <li>E-sertifikat</li>
+          </ul>
+          <button class="btn btn-ghost pick" data-pkg="single" type="button">Pilih Single</button>
+        </article>
+        <article class="pkg pkg-main">
+          <h3>Bundling</h3>
+          <p class="price">Rp330.000</p>
+          <ul>
+            <li>3 tiket peserta</li>
+            <li>Presensi QR</li>
+            <li>E-sertifikat untuk tiap peserta</li>
+          </ul>
+          <button class="btn pick" data-pkg="bundling" type="button">Pilih Bundling</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section id="daftar" class="section no-print">
+      <h2>Formulir pendaftaran</h2>
+      <p id="formStatus" class="form-status"></p>
+
+      <form id="regForm" novalidate>
+        <fieldset id="formFields">
+          <legend class="sr">Data pendaftar</legend>
+
+          <div class="choice" role="radiogroup" aria-label="Pilih paket">
+            <label><input type="radio" name="paket" value="single" checked> <span>Single<small>Rp125.000</small></span></label>
+            <label><input type="radio" name="paket" value="bundling"> <span>Bundling<small>Rp330.000</small></span></label>
+          </div>
+
+          <div id="seatsWrap"></div>
+
+          <label class="field">Email
+            <input type="email" id="email" autocomplete="email" required placeholder="nama@email.com">
+          </label>
+          <label class="field">Nomor WhatsApp
+            <input type="tel" id="wa" autocomplete="tel" required placeholder="08123456789" inputmode="numeric">
+          </label>
+          <label class="field">Instansi atau kampus
+            <input type="text" id="instansi" required placeholder="Contoh: Universitas Dian Nuswantoro">
+          </label>
+
+          <p id="formError" class="error" role="alert"></p>
+          <div class="total">Total <b id="totalText">Rp125.000</b></div>
+          <button id="submitBtn" class="btn" type="submit">Daftar dan buat tiket</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- CEK TIKET -->
+    <section id="cek" class="section no-print">
+      <h2>Cek tiket</h2>
+      <p class="intro">Sudah mendaftar? Masukkan kode registrasi atau email Anda.</p>
+      <form id="lookupForm" class="lookup">
+        <input type="text" id="lookupInput" placeholder="Kode (SMN26-XXXXXX) atau email" aria-label="Kode atau email">
+        <button class="btn btn-ghost" type="submit">Tampilkan tiket</button>
+      </form>
+      <p id="lookupMsg" class="error"></p>
+    </section>
+
+    <!-- HASIL TIKET -->
+    <section id="tiket" class="section" hidden>
+      <div id="ticketResult"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer no-print">
+    <p>© 2026 HMTI UDINUS. SEMNASTI 2026.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
